@@ -102,7 +102,7 @@ class SampleRunner implements ApplicationRunner {
 	@Value("${user.name}")
 	String userName;
 
-	@Value("${user.age:25}")
+	@Value("${user.age}")
 	int userAge;
 
 	@Autowired
@@ -169,8 +169,10 @@ class SampleController {
 	}
 
 	@RequestMapping("/bool")
-	public boolean bool() {
-		return (Boolean) (userConfig.getMap().get("2"));
+	public Object bool() {
+		System.out.println(userConfig.getMap().get("sdf"));
+		System.out.println(userConfig.getMap().get("value2"));
+		return  userConfig.getMap().get("sdf");
 	}
 
 }
